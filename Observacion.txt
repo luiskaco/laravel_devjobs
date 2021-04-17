@@ -1,0 +1,89 @@
+instalando tailwings
+
+npm install --save-dev tailwindcss laravel-mix-tailwind
+
+https://tailwindcss.com/
+
+1 - npx tailwindcss init
+
+2 - Importamos las utilidaes den webpack
+    require('laravel-mix-tailwind');
+
+2-1 registramos en el mix la compitacion del css
+   .tailwind();
+
+3 - agregamos las directivas en el apps.scss
+    @tailwind base;
+    @tailwind components;
+    @tailwind utilities;
+----------------------------------------------------------------------
+Creando notificaciones
+
+php artisan make:notificacion "NombreNotification"
+
+- Crear notifaciones por DB
+    habilitamos la notificaciones
+
+    php artisan notificacion:table
+
+    --- En tinker para verificar las notificaciones
+        $usuario->notifications
+
+        - Para marcarlar
+          $usaurio->Notifications[0]->markAsRead()
+
+        - Las no leidas
+        $usaurio->unreadNotifications
+
+        - Para contaer
+        $usaurio->unreadNotifications->count()
+------------------------------------------------------------------
+Creando un provider para pasar las categoria con view composer
+
+php artisan make:provider CategoriaPrivider
+
+-------------------------------------------------------------------
+Como agregar verifacion de correo en laravel
+
+    1 Pasamos un arreglo verify => true para habiltiar la verificacion por correo en la ruta
+
+        Auth::routes(['verify' => true]);
+
+    2- Habilitamos en el modelo implementamos MustVerifyEmail
+
+        class User extends Authenticatable implements MustVerifyEmail
+
+    3- En el controlador pasamoe el middleware de verificacion para los usuaris
+
+        $this->middleware(['auth', 'verified']);
+
+-----------------------------------------------------------------------
+Configrando policy
+
+php artisan make:policy "Nombre" -m "Modelo asociar"
+
+-----------------------------------------------------------------------
+PAQUETE JS a USAR
+
+- Medium editor
+Nota: Media editor solo require de un div para su funcionamiento
+
+https://github.com/yabwe/medium-editor
+https://cdnjs.com/libraries/medium-editor
+
+- DROPZONE
+
+https://cdnjs.com/libraries/dropzone
+
+- Instalamos Ligtbox
+
+npm install lightbox2 --save
+
+Para agregar la hoja
+https://cdnjs.com/libraries/lightbox2
+
+
+- SweetAlertVue
+  npm i vue-sweetalert
+
+
